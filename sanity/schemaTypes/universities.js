@@ -29,6 +29,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'location',
+      title: 'Location',
+      type: 'geopoint',
+    }),
+    defineField({
       name: 'mentors',
       title: 'Mentors',
       type: 'array',
