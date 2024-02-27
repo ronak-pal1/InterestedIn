@@ -26,6 +26,7 @@
 .middle-container > a {
   margin: 0 10px;
   font-size: 20px;
+  color: rgb(34, 57, 207);
   font-weight: 100;
 }
 
@@ -45,4 +46,35 @@
   border-radius: 30px;
   color: white;
   cursor: pointer;
+}
+
+/* for the responsive design */
+@media screen and (max-width: 1000px) {
+  .container {
+    padding: 20px 10px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .left-container,
+  .middle-container {
+    margin: 10px 0px;
+  }
+
+  .right-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .left-container > a {
+    font-size: 30px;
+  }
+
+  .middle-container > a {
+    margin: 0 7px;
+    font-size: 16px;
+    font-weight: 300;
+  }
 }

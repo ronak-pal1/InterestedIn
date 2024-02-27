@@ -18,19 +18,30 @@ const UniInfo = ({ details }) => {
 
 const SingleUniPage = () => {
   const [section, setSection] = useState("info");
+  const [mentors, setMentors] = useState([]);
   const { id } = useParams();
   const [university, setUniversity] = useState(null);
 
   useEffect(() => {
-    console.log(id);
     fetch(
       toURL(
-        `*[_type == "universities" && _id == "${id}" ]{...,"photoURL": photo.asset->url}`
+        `*[_type == "universities" && _id == "${id}" ]{details,location,name,ranking, _id, courses,"photoURL": photo.asset->url}`
       )
     )
       .then((res) => res.json())
       .then(({ result }) => {
+        console.log(result[0]);
         setUniversity(result[0]);
+      });
+
+    fetch(
+      toURL(
+        `*[_type == "mentors" ]{name,skills,university, _id, "photoURL": profile.asset->url}[0...6]`
+      )
+    )
+      .then((res) => res.json())
+      .then(({ result }) => {
+        setMentors(result);
       });
   }, []);
 
@@ -81,22 +92,28 @@ const SingleUniPage = () => {
 
         {section == "courses" && (
           <>
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
+            {university?.courses?.map((course) => (
+              <CourseCard
+                key={course._key}
+                courseName={course.name}
+                fees={course.fees}
+              />
+            ))}
           </>
         )}
 
         {section == "mentors" && (
           <>
-            <MentorCard />
-            <MentorCard />
-            <MentorCard />
-            <MentorCard />
-            <MentorCard />
-            <MentorCard />
+            {mentors?.map((mentor) => (
+              <MentorCard
+                key={mentor._id}
+                id={mentor._id}
+                name={mentor.name}
+                imageURL={mentor.photoURL}
+                skills={mentor.skills}
+                uni={mentor.university}
+              />
+            ))}
           </>
         )}
       </div>

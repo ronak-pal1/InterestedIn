@@ -46,3 +46,52 @@
 .mentor-card > .details > .university {
   font-size: 22px;
 }
+
+/* for the responsive design */
+@media screen and (max-width: 1000px) {
+  .mentor-card {
+    width: 500px;
+    height: 150px;
+    margin: 30px 0px;
+  }
+
+  .mentor-card > .details {
+    padding-left: 10px;
+  }
+
+  .mentor-card > .details > .name {
+    font-size: 20px;
+  }
+
+  .mentor-card > .details > .university {
+    font-size: 18px;
+  }
+
+  .mentor-card > .details > .skills {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .mentor-card {
+    width: 350px;
+    height: 130px;
+    margin: 30px;
+  }
+
+  .mentor-card > .details {
+    padding-left: 7px;
+  }
+
+  .mentor-card > .details > .name {
+    font-size: 16px;
+  }
+
+  .mentor-card > .details > .university {
+    font-size: 14px;
+  }
+
+  .mentor-card > .details > .skills {
+    font-size: 11px;
+  }
+}

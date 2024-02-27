@@ -10,7 +10,7 @@ footer {
 }
 
 footer > div {
-  width: 70%;
+  width: 80%;
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -19,11 +19,16 @@ footer > div {
 
 footer > div > .left > p {
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 800;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: rgb(34, 57, 207);
 }
 
 footer > div > .right {
-  flex: 0.5;
+  width: 100%;
+  height: 100%;
+  flex: 0.7;
   display: flex;
   justify-content: space-evenly;
 }
@@ -35,4 +40,47 @@ footer > div > .right > .links {
 
 footer > div > .right > .links > a {
   margin: 10px 0px;
+}
+
+footer > div > .right > .details {
+  width: 200px;
+  font-weight: 200;
+  padding: 20px;
+  color: rgb(63, 63, 63);
+}
+
+@media screen and (max-width: 1000px) {
+  footer > div {
+    width: 90%;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  footer > div > .right {
+    flex: 1;
+  }
+
+  footer > div > .right > .details {
+    width: 200px;
+    font-weight: 200;
+    padding: 20px;
+    color: rgb(63, 63, 63);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  footer > div > .left > p {
+    font-size: 30px;
+  }
+
+  footer > div > .right > .links > a {
+    font-size: 17px;
+    margin: 5px 0px;
+  }
+
+  footer > div > .right > .details {
+    width: 150px;
+    padding: 10px;
+    font-size: 15px;
+  }
 }

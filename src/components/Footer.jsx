@@ -11,11 +11,14 @@ const Footer = () => {
         <div className="right">
           <div className="links">
             <Link>Home</Link>
-            <Link>About</Link>
-            <Link>Blogs</Link>
+            <Link>Universities</Link>
+            <Link>Mentors</Link>
           </div>
           <div className="details">
-            <p>Adress</p>
+            <p>
+              Dr BS Tomar City, NH-11C, Highway, Jaipur Delhi, Chandwaji,
+              Rajasthan 302131
+            </p>
           </div>
         </div>
       </div>

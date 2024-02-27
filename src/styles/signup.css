@@ -1,10 +1,9 @@
 .signup-container {
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 70px 50px;
+  padding: 40px 0px;
 }
 
 .signup-container > .left {
@@ -108,4 +107,30 @@
 .signup-container > .right > img {
   width: 100%;
   height: 100%;
+}
+
+@media screen and (max-width: 1300px) {
+  .signup-container > .left {
+    flex: 0.4;
+  }
+
+  .signup-container > .right {
+    flex: 0.4;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .signup-container > .left {
+    flex: 0.5;
+  }
+
+  .signup-container > .right {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .signup-container > .left > p {
+    font-size: 25px;
+  }
 }
