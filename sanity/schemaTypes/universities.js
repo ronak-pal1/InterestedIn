@@ -18,7 +18,7 @@ export default defineType({
     defineField({
       name: 'ranking',
       title: 'Ranking',
-      type: 'number',
+      type: 'string',
     }),
     defineField({
       name: 'photo',

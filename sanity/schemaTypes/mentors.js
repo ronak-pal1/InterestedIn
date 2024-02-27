@@ -29,6 +29,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'details',
+      title: 'Details',
+      type: 'string',
+    }),
+    defineField({
       name: 'year',
       title: 'Year',
       type: 'number',

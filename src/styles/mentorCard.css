@@ -1,0 +1,48 @@
+.mentor-card {
+  width: 700px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  background-color: #01425a;
+  color: white;
+  margin: 30px;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+.mentor-card:hover {
+  transform: scale(1.1);
+}
+
+.mentor-card:active {
+  transform: scale(0.9);
+}
+
+.mentor-card > .profile {
+  flex: 0.3;
+  height: 100%;
+  background-color: aliceblue;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.mentor-card > .profile > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.mentor-card > .details {
+  padding-left: 20px;
+  flex: 0.7;
+}
+
+.mentor-card > .details > .name {
+  font-size: 30px;
+}
+
+.mentor-card > .details > .university {
+  font-size: 22px;
+}

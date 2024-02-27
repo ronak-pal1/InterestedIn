@@ -1,0 +1,38 @@
+footer {
+  width: 100%;
+  height: fit-content;
+  padding: 70px 0px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 0.3px solid rgb(150, 149, 149);
+}
+
+footer > div {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer > div > .left > p {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+footer > div > .right {
+  flex: 0.5;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+footer > div > .right > .links {
+  display: flex;
+  flex-direction: column;
+}
+
+footer > div > .right > .links > a {
+  margin: 10px 0px;
+}

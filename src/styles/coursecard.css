@@ -1,0 +1,43 @@
+.coursecard-container {
+  width: 400px;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: white;
+  border: 0.2px solid rgb(226, 224, 224);
+  box-shadow: 5px 15px 40px 7px rgba(206, 204, 204, 0.784);
+  transition: 0.5s;
+  margin: 30px;
+}
+
+.coursecard-container:hover {
+  transform: scale(1.1);
+}
+
+.coursecard-container > img {
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+}
+
+.coursecard-container > div {
+  padding: 15px;
+  padding-bottom: 30px;
+}
+.coursecard-container > div > .course {
+  font-size: 25px;
+}
+
+.coursecard-container > div > .fees {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.coursecard-container > div > button {
+  padding: 10px 20px;
+  background-color: rgb(154, 92, 213);
+  border-radius: 10px;
+  border: none;
+  color: white;
+}

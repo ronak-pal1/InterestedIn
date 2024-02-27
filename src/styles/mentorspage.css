@@ -1,0 +1,14 @@
+.mentorspage-container > .info {
+  text-align: center;
+  padding: 40px;
+  color: rgb(118, 19, 210);
+}
+
+.mentorspage-container > .cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 40px;
+}

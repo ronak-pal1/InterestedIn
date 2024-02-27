@@ -1,0 +1,111 @@
+.signup-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 70px 50px;
+}
+
+.signup-container > .left {
+  flex: 0.2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-container > .left > p {
+  font-size: 30px;
+  color: blue;
+}
+
+.signup-container > .left > .withgoogle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-container > .left > .withgoogle > div {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 0px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 0.3px solid rgb(110, 109, 109);
+  transition: 0.5s;
+}
+
+.signup-container > .left > .withgoogle > div:hover {
+  transform: scale(1.1);
+}
+
+.signup-container > .left > .withgoogle > div:active {
+  transform: scale(0.9);
+}
+
+.signup-container > .left > .withgoogle > div > p {
+  margin-left: 5px;
+  font-size: 15px;
+}
+
+.signup-container > .left > .withgoogle > p {
+  color: rgb(161, 157, 157);
+}
+
+.signup-form {
+  width: 100%;
+}
+
+.signup-form > form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-form > form > input {
+  width: 100%;
+  height: 40px;
+  margin: 15px 0px;
+  padding: 0px 10px;
+  border: none;
+  border-radius: 10px;
+  border: 0.3px solid rgb(110, 109, 109);
+}
+
+.signup-form > form > button {
+  width: 100%;
+  padding: 15px 30px;
+  background-color: rgb(52, 68, 186);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  transition: 0.5s;
+}
+
+.signup-form > form > button:hover {
+  transform: scale(1.1);
+}
+
+.signup-form > form > button:active {
+  transform: scale(0.9);
+}
+
+.signup-container > .left > .other-options {
+  text-align: center;
+}
+
+.signup-container > .left > .other-options > p {
+  font-size: 15px;
+}
+
+.signup-container > .right {
+  flex: 0.5;
+}
+
+.signup-container > .right > img {
+  width: 100%;
+  height: 100%;
+}
