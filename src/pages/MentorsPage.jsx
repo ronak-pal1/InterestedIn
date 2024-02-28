@@ -2,20 +2,31 @@ import { useEffect, useState } from "react";
 import MentorCard from "../components/MentorCard";
 import "../styles/mentorspage.css";
 import toURL from "../sanityFetch";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const MentorsPage = () => {
   const [mentors, setMentors] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(
-      toURL(
-        `*[_type == "mentors"]{name,skills,_id,university,"photoURL": profile.asset->url}`
-      )
-    )
-      .then((res) => res.json())
-      .then(({ result }) => {
-        setMentors(result);
-      });
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        fetch(
+          toURL(
+            `*[_type == "mentors"]{name,skills,_id,university,"photoURL": profile.asset->url}`
+          )
+        )
+          .then((res) => res.json())
+          .then(({ result }) => {
+            setMentors(result);
+          });
+      } else {
+        console.log("user is not signed in");
+        navigate("/signup");
+      }
+    });
   }, []);
   return (
     <div className="mentorspage-container">

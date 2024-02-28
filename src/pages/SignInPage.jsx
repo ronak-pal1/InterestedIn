@@ -1,13 +1,53 @@
 import "../styles/signin.css";
 import SIGNIN_IMAGE from "../assets/signinimage.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {
+  signInWithEmailAndPassword,
+  signInWithRedirect,
+  GoogleAuthProvider,
+  getRedirectResult,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { auth } from "../firebase";
 
 const SignInPage = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const googleauth = async (e) => {
+    e.preventDefault();
+    const provider = new GoogleAuthProvider();
+
+    await signInWithRedirect(auth, provider);
+  };
+
+  const signin = async (e) => {
+    e.preventDefault();
+
+    await signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log(userCredential.user);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/");
+      }
+    });
+  }, []);
   return (
     <div className="signin-container">
       <div className="left">
         <p>You're back !!! 🎉</p>
-        <div className="withgoogle">
+        <div className="withgoogle" onClick={googleauth}>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,9 +89,21 @@ const SignInPage = () => {
 
         <div className="signin-form">
           <form>
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Password" required />
-            <button>Sign in</button>
+            <input
+              type="email"
+              placeholder="Email"
+              autoComplete="on"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              autoComplete="on"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button onClick={signin}>Sign in</button>
           </form>
         </div>
 

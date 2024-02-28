@@ -4,12 +4,15 @@ import UniCard from "../components/UniCard";
 import MentorCard from "../components/MentorCard";
 import { useEffect, useState } from "react";
 import toURL from "../sanityFetch";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
 const FrontPage = () => {
   const [universities, setUniversities] = useState([]);
   const [mentors, setMentors] = useState([]);
-
+  const [userName, setUserName] = useState("");
+  const [isSignedIn, setIsSignedIn] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,14 +28,24 @@ const FrontPage = () => {
 
     fetch(
       toURL(
-        `*[_type == "mentors" ]{name,skills,university, _id, "photoURL": profile.asset->url}[0...3]`
+        `*[_type == "mentors" && (name == "Ronak Paul" || name == "Keshu " || name == "Animesh Singh")]{name,skills,university,"photoURL": profile.asset->url}`
       )
     )
       .then((res) => res.json())
       .then(({ result }) => {
         setMentors(result);
-        console.log(result);
       });
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsSignedIn(true);
+        setUserName(user.displayName);
+      } else {
+        setIsSignedIn(false);
+        setUserName("");
+        console.log("user is not signin in");
+      }
+    });
   }, []);
 
   return (
@@ -40,11 +53,16 @@ const FrontPage = () => {
       <div className="hero-section">
         <img src={HERO_SECTION_BANNER} alt="university banner" />
         <div className="hero-section-details">
-          <h1>Discover your passion</h1>
+          <h1>
+            Discover your passion{" "}
+            <span style={{ color: "rgb(174, 143, 224)" }}>{userName}</span>
+          </h1>
           <p>
             Let's connect with university students and get mentored from them
           </p>
-          <button onClick={() => navigate("/signup")}>Get Started</button>
+          {!isSignedIn && (
+            <button onClick={() => navigate("/signup")}>Get Started</button>
+          )}
         </div>
       </div>
 

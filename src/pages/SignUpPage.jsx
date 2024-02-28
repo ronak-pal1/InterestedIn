@@ -1,13 +1,67 @@
 import "../styles/signup.css";
 import SIGNUPIMAGE from "../assets/signupimage.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithRedirect,
+  updateProfile,
+} from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
+import { auth } from "../firebase";
+import { useEffect, useState } from "react";
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const googleauth = async (e) => {
+    e.preventDefault();
+
+    const provider = new GoogleAuthProvider();
+
+    await signInWithRedirect(auth, provider);
+  };
+
+  const signup = async (e) => {
+    e.preventDefault();
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          console.log(userCredential.user);
+
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      await updateProfile(auth.currentUser, { displayName: name }).catch(
+        (err) => {
+          console.log(err);
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/");
+      }
+    });
+  }, []);
+
   return (
     <div className="signup-container">
       <div className="left">
         <p>Create your account</p>
-        <div className="withgoogle">
+        <div className="withgoogle" onClick={googleauth}>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,10 +103,28 @@ const SignUpPage = () => {
 
         <div className="signup-form">
           <form>
-            <input type="text" placeholder="Username" required />
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Password" required />
-            <button>Sign Up</button>
+            <input
+              type="text"
+              placeholder="Username"
+              autoComplete="on"
+              required
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              autoComplete="on"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              autoComplete="on"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button onClick={signup}>Sign Up</button>
           </form>
         </div>
 

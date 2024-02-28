@@ -1,11 +1,14 @@
 import "../styles/unipage.css";
-import UNI_IMAGE from "../assets/hero-section-banner.jpg";
 import UniCard from "../components/UniCard";
 import { useEffect, useState } from "react";
 import toURL from "../sanityFetch";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const UniversityPage = () => {
   const [universities, setUniversities] = useState([]);
+  const navigate = useNavigate();
 
   const fetchData = () => {
     fetch(
@@ -17,11 +20,21 @@ const UniversityPage = () => {
       .then(({ result }) => {
         console.log(result);
         setUniversities(result);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
   useEffect(() => {
-    fetchData();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        fetchData();
+      } else {
+        console.log("User is not signed in");
+        navigate("/signup");
+      }
+    });
   }, []);
 
   return (
