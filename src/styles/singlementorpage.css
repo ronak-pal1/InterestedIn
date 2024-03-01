@@ -1,0 +1,178 @@
+.mentor-profile-container {
+  min-height: 70vh;
+  max-height: fit-content;
+}
+
+.mentor-profile-container > .profile-banner {
+  width: 100%;
+  height: 300px;
+  background-color: rgb(154, 92, 213);
+  display: flex;
+  justify-content: center;
+}
+
+.mentor-profile-container > .profile-banner > .profile-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+}
+
+.mentor-profile-container > .profile-banner > .profile-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.mentor-profile-container > .profile-info {
+  width: 70%;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mentor-profile-container > .profile-info > .name {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.mentor-profile-container > .profile-info > .academic {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  color: rgba(11, 11, 102, 0.958);
+  background-color: rgb(239, 238, 238);
+}
+
+.mentor-profile-container > .profile-info > .connectButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(154, 92, 213);
+  color: white;
+  margin: 20px;
+  transition: 0.3s;
+}
+
+.mentor-profile-container > .profile-info > .charge {
+  background-color: rgb(141, 242, 107);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+.mentor-profile-container > .profile-info > .connectButton:hover {
+  transform: scale(1.1);
+}
+
+.mentor-profile-container > .profile-info > .connectButton:active {
+  transform: scale(0.9);
+}
+
+.mentor-profile-container > .profile-info > .details {
+  width: 70%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.mentor-profile-container > .profile-info > .skills {
+  width: 80%;
+}
+
+.mentor-profile-container > .profile-info > .skills > p {
+  font-size: 30px;
+  color: rgb(1, 1, 71);
+}
+
+.mentor-profile-container > .profile-info > .skills > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.mentor-profile-container > .profile-info > .skills > div > div {
+  background-color: rgb(221, 220, 228);
+  padding: 10px 20px;
+  border-radius: 30px;
+  margin: 10px;
+}
+
+/* For responsive design code */
+@media screen and (max-width: 1000px) {
+  .mentor-profile-container > .profile-banner {
+    height: 250px;
+  }
+
+  .mentor-profile-container > .profile-banner > .profile-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .mentor-profile-container > .profile-info {
+    width: 85%;
+  }
+
+  .mentor-profile-container > .profile-info > .name {
+    font-size: 35px;
+  }
+
+  .mentor-profile-container > .profile-info > .details {
+    width: 85%;
+  }
+
+  .mentor-profile-container > .profile-info > .skills > p {
+    font-size: 25px;
+  }
+
+  .mentor-profile-container > .profile-info > .skills > div > div {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .mentor-profile-container > .profile-banner {
+    height: 200px;
+  }
+
+  .mentor-profile-container > .profile-banner > .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .mentor-profile-container > .profile-info {
+    width: 90%;
+  }
+
+  .mentor-profile-container > .profile-info > .name {
+    font-size: 30px;
+  }
+
+  .mentor-profile-container > .profile-info > .academic > p {
+    font-size: 15px;
+  }
+
+  .mentor-profile-container > .profile-info > .details {
+    width: 90%;
+    font-size: 15px;
+  }
+
+  .mentor-profile-container > .profile-info > .skills {
+    width: 90%;
+  }
+
+  .mentor-profile-container > .profile-info > .skills > p {
+    font-size: 22px;
+  }
+
+  .mentor-profile-container > .profile-info > .skills > div > div {
+    font-size: 11px;
+  }
+}
