@@ -1,0 +1,8 @@
+.all-blogs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 80px 0px;
+  min-height: 70vh;
+  max-height: fit-content;
+}
