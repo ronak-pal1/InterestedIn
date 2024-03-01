@@ -80,3 +80,83 @@
 .uniinfo-container > .about-section > h1 {
   color: rgb(118, 19, 210);
 }
+
+/* responsive design code */
+@media screen and (max-width: 1000px) {
+  .singleunipage-container > .banner {
+    height: 500px;
+  }
+
+  .singleunipage-container > .banner > .banner-info {
+    top: 40%;
+  }
+
+  .singleunipage-container > .banner > .banner-info > .uni-name {
+    font-size: 50px;
+    line-height: 35px;
+  }
+
+  .singleunipage-container > .banner > .banner-info > .location {
+    font-size: 25px;
+  }
+
+  .singleunipage-container > .banner > .banner-info > .ranking {
+    font-size: 25px;
+  }
+
+  .singleunipage-container > .navigators {
+    width: 50%;
+  }
+
+  .singleunipage-container > .subpage {
+    padding: 30px 0px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .singleunipage-container > .banner {
+    height: 400px;
+  }
+
+  .singleunipage-container > .banner > .banner-info {
+    top: 30%;
+  }
+
+  .singleunipage-container > .banner > .banner-info > .uni-name {
+    font-size: 35px;
+  }
+
+  .singleunipage-container > .banner > .banner-info > .location {
+    font-size: 22px;
+  }
+
+  .singleunipage-container > .banner > .banner-info > .ranking {
+    font-size: 22px;
+  }
+
+  .singleunipage-container > .navigators {
+    width: 60%;
+  }
+
+  .singleunipage-container > .subpage {
+    padding: 10px 0px;
+  }
+
+  .singleunipage-container > .navigators > div {
+    padding: 2px 0px;
+    margin: 0px 3px;
+    font-size: 15px;
+  }
+
+  .uniinfo-container {
+    padding: 0px 20px;
+  }
+
+  .uniinfo-container > .about-section > h1 {
+    font-size: 28px;
+  }
+
+  .uniinfo-container > .about-section > p {
+    font-size: 14px;
+  }
+}

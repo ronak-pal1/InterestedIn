@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "../styles/mentorCard.css";
 
 const skillsIntoText = (skills) => {
@@ -10,8 +11,10 @@ const skillsIntoText = (skills) => {
   return text;
 };
 const MentorCard = ({ imageURL, name, uni, skills, id }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="mentor-card">
+    <div className="mentor-card" onClick={() => navigate(`/mentors/${id}`)}>
       <div className="profile">
         <img src={imageURL} alt="mentor image" />
       </div>

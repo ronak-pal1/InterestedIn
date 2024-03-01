@@ -1,5 +1,4 @@
 import "../styles/coursecard.css";
-import HERO_SECTION_BANNER from "../assets/hero-section-banner.jpg";
 
 const CourseCard = ({ courseName, fees, details }) => {
   return (

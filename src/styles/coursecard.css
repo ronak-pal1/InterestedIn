@@ -41,3 +41,52 @@
   border: none;
   color: white;
 }
+
+/* responsive design code */
+@media screen and (max-width: 1000px) {
+  .coursecard-container {
+    width: 300px;
+    margin: 20px;
+  }
+
+  .coursecard-container > div {
+    padding: 15px;
+    padding-bottom: 20px;
+  }
+  .coursecard-container > div > .course {
+    font-size: 20px;
+  }
+
+  .coursecard-container > div > .fees {
+    font-size: 17px;
+  }
+
+  .coursecard-container > div > button {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .coursecard-container {
+    width: 200px;
+    margin: 10px;
+  }
+
+  .coursecard-container > div {
+    padding: 15px;
+    padding-bottom: 10px;
+  }
+  .coursecard-container > div > .course {
+    font-size: 13px;
+  }
+
+  .coursecard-container > div > .fees {
+    font-size: 11px;
+  }
+
+  .coursecard-container > div > button {
+    padding: 10px 15px;
+    font-size: 11px;
+  }
+}

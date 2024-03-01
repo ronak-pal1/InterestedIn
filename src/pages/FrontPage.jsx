@@ -28,7 +28,7 @@ const FrontPage = () => {
 
     fetch(
       toURL(
-        `*[_type == "mentors" && (name == "Ronak Paul" || name == "Keshu " || name == "Animesh Singh")]{name,skills,university,"photoURL": profile.asset->url}`
+        `*[_type == "mentors" && (name == "Ronak Paul" || name == "Keshu " || name == "Animesh Singh")]{_id,name,skills,university,"photoURL": profile.asset->url}`
       )
     )
       .then((res) => res.json())
@@ -89,11 +89,11 @@ const FrontPage = () => {
           {mentors?.map((mentor) => (
             <MentorCard
               key={mentor._id}
-              id={mentor._id}
               name={mentor.name}
               imageURL={mentor.photoURL}
               skills={mentor.skills}
               uni={mentor.university}
+              id={mentor._id}
             />
           ))}
         </div>

@@ -30,7 +30,6 @@ const SingleUniPage = () => {
     )
       .then((res) => res.json())
       .then(({ result }) => {
-        console.log(result[0]);
         setUniversity(result[0]);
       });
 
