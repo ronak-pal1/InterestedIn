@@ -12,6 +12,14 @@
   background-color: white;
 }
 
+.sidebar-button {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  cursor: pointer;
+  display: none;
+}
+
 .left-container > a {
   font-size: 35px;
   font-weight: 800;
@@ -26,7 +34,7 @@
 .middle-container > a {
   margin: 0 10px;
   font-size: 20px;
-  color: rgb(34, 57, 207);
+  color: rgb(4, 20, 128);
   font-weight: 100;
 }
 
@@ -64,6 +72,10 @@
 
   .right-container {
     display: none;
+  }
+
+  .sidebar-button {
+    display: block;
   }
 }
 
